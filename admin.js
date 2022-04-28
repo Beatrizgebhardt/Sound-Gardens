@@ -11,7 +11,7 @@ async function buscarEventos() {
   }
 }
 
-async function ListarEventos() {
+async function listarEventos() {
   let htmlEventos = "";
   let eventosAPI = await buscarEventos();
 
@@ -36,4 +36,4 @@ async function ListarEventos() {
 
   tabelaEventos.innerHTML = htmlEventos;
 }
-ListarEventos();
+listarEventos();
