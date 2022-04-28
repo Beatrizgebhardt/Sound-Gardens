@@ -20,12 +20,13 @@ async function buscarEvento() {
       method: "GET",
     });
     const conteudoResposta = await resposta.json();
-    formSelector["nome"].value = conteudoResposta.name;
-    formSelector["banner"].value = conteudoResposta.poster;
-    formSelector["atracoes"].value = conteudoResposta.attractions.join(",");
+
+    formSelector["nome"].value = conteudoResposta.name || "";
+    formSelector["banner"].value = conteudoResposta.poster || "";
+    formSelector["atracoes"].value = (conteudoResposta.attractions || []).join(",");
     formSelector["descricao"].value = conteudoResposta.descricao || "";
-    formSelector["data"].value = conteudoResposta.scheduled;
-    formSelector["lotacao"].value = conteudoResposta.number_tickets;
+    formSelector["data"].value = new Date(conteudoResposta.scheduled).toLocaleString() || "";
+    formSelector["lotacao"].value = conteudoResposta.number_tickets || "";
   } catch (error) {
     console.log(error);
   }

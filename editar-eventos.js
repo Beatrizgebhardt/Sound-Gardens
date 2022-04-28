@@ -34,6 +34,7 @@ async function buscarEvento() {
       method: "GET",
     });
     const conteudoResposta = await resposta.json();
+
     formSelector["nome"].value = conteudoResposta.name;
     formSelector["banner"].value = conteudoResposta.poster;
     formSelector["atracoes"].value = conteudoResposta.attractions.join(",");
@@ -44,4 +45,5 @@ async function buscarEvento() {
     console.log(error);
   }
 }
+
 buscarEvento();
